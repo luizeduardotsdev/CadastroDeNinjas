@@ -21,7 +21,6 @@ public class MissoesModel {
     private String nome;
     private String dificuldade;
     private LocalDateTime startAt;
-    private LocalDateTime endAt;
 
     @JsonIgnore
     @OneToMany(mappedBy = "missoes")
