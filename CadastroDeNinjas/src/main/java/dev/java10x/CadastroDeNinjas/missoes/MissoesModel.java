@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class MissoesModel {
     private LocalDateTime startAt;
     private LocalDateTime endAt;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninja;
 
