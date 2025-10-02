@@ -15,8 +15,8 @@ import java.util.UUID;
 public class MissoesModel {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
     private String dificuldade;
