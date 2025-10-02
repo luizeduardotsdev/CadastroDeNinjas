@@ -3,6 +3,8 @@ package dev.java10x.CadastroDeNinjas.ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class NinjaService {
@@ -15,6 +17,11 @@ public class NinjaService {
 
     public List<NinjaModel> listarNinjas() {
         return ninjaRepository.findAll();
+    }
+
+    public NinjaModel ListarNinjaPorID(UUID id) {
+        Optional<NinjaModel> ninja = ninjaRepository.findById(id);
+        return ninja.orElse(null);
     }
 
 }
