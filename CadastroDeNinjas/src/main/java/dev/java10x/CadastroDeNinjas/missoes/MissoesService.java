@@ -3,7 +3,6 @@ package dev.java10x.CadastroDeNinjas.missoes;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class MissoesService {
