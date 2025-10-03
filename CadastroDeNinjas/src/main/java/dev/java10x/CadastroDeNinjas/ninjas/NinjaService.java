@@ -28,6 +28,14 @@ public class NinjaService {
         return ninja.orElse(null);
     }
 
+    public NinjaModel atualizarNinja(UUID id, NinjaModel ninjaModel) {
+        if (ninjaRepository.existsById(id)) {
+            ninjaModel.setId(id);
+            return ninjaRepository.save(ninjaModel);
+        }
+        return null;
+    }
+
     public void deleteNinjaPorId(UUID id) {
         ninjaRepository.deleteById(id);
     }
