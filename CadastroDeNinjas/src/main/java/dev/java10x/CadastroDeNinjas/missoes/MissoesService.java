@@ -3,7 +3,6 @@ package dev.java10x.CadastroDeNinjas.missoes;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -17,5 +16,9 @@ public class MissoesService {
 
     public List<MissoesModel> listarMissoes() {
         return missoesRepository.findAll();
+    }
+
+    public void deletarMissoesPorId(UUID id) {
+        missoesRepository.deleteById(id);
     }
 }

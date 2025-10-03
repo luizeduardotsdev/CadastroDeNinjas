@@ -3,6 +3,7 @@ package dev.java10x.CadastroDeNinjas.missoes;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/missoes")
@@ -35,8 +36,8 @@ public class MissoesController {
     }
 
 
-    @DeleteMapping("/deletar")
-    public String deletarMissao() {
-        return "missao deletada";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissao(@PathVariable UUID id) {
+        missoesService.deletarMissoesPorId(id);
     }
 }
