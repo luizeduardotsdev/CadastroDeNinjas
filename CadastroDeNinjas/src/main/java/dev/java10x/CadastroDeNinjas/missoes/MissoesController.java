@@ -3,7 +3,6 @@ package dev.java10x.CadastroDeNinjas.missoes;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/missoes")
@@ -30,14 +29,14 @@ public class MissoesController {
         return missoesService.listarMissoes();
     }
 
-    @PutMapping("/alterar")
-    public String alterarMissao() {
-        return "missao alterada";
+    @PutMapping("/alterar/{id}")
+    public MissoesModel alterarMissao(@PathVariable Long id, @RequestBody MissoesModel missoesModel) {
+        return missoesService.atualizarMissao(id, missoesModel);
     }
 
 
     @DeleteMapping("/deletar/{id}")
-    public void deletarMissao(@PathVariable UUID id) {
+    public void deletarMissao(@PathVariable Long id) {
         missoesService.deletarMissoesPorId(id);
     }
 }

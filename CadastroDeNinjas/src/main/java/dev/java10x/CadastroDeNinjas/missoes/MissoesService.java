@@ -22,7 +22,15 @@ public class MissoesService {
         return missoesRepository.findAll();
     }
 
-    public void deletarMissoesPorId(UUID id) {
+    public MissoesModel atualizarMissao(Long id, MissoesModel missoesModel) {
+        if (missoesRepository.existsById(id)){
+            missoesModel.setId(id);
+            return missoesRepository.save(missoesModel);
+        }
+        return null;
+    }
+
+    public void deletarMissoesPorId(Long id) {
         missoesRepository.deleteById(id);
     }
 }
