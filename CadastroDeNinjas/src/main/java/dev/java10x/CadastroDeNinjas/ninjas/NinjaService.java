@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.ninjas;
 
+import dev.java10x.CadastroDeNinjas.missoes.MissoesMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,13 +11,17 @@ import java.util.UUID;
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
-    public NinjaModel criarNinja(NinjaModel ninjaModel) {
-        return ninjaRepository.save(ninjaModel);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO) {
+        NinjaModel ninja = new NinjaMapper().map(ninjaDTO);
+        ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
     public List<NinjaModel> listarNinjas() {
