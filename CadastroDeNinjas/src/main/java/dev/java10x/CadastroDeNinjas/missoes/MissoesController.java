@@ -14,23 +14,18 @@ public class MissoesController {
         this.missoesService = missoesService;
     }
 
-    @GetMapping("/boasvindas")
-    public String missoes() {
-        return "aba de missoes";
-    }
-
     @PostMapping("/criar")
-    public MissoesModel criarMissao(MissoesModel missoesModel) {
+    public MissoesDTO criarMissao(MissoesDTO missoesModel) {
         return missoesService.CriarMissao(missoesModel);
     }
 
     @GetMapping("/listar")
-    public List<MissoesModel> listarMissao() {
+    public List<MissoesDTO> listarMissao() {
         return missoesService.listarMissoes();
     }
 
     @PutMapping("/alterar/{id}")
-    public MissoesModel alterarMissao(@PathVariable Long id, @RequestBody MissoesModel missoesModel) {
+    public MissoesDTO alterarMissao(@PathVariable Long id, @RequestBody MissoesDTO missoesModel) {
         return missoesService.atualizarMissao(id, missoesModel);
     }
 
