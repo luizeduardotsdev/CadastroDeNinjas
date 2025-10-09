@@ -1,6 +1,5 @@
 package dev.java10x.CadastroDeNinjas.ninjas;
 
-import dev.java10x.CadastroDeNinjas.missoes.MissoesMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
