@@ -30,6 +30,11 @@ public class MissoesService {
                 .collect(Collectors.toList());
     }
 
+    public MissoesDTO listarMissoesPorId(Long id) {
+        Optional<MissoesModel> missoes = missoesRepository.findById(id);
+        return missoes.map(missoesMapper::map).orElse(null);
+    }
+
     public MissoesDTO atualizarMissao(Long id, MissoesDTO missoesDTO) {
         Optional<MissoesModel> missaoExistente = missoesRepository.findById(id);
         if (missaoExistente.isPresent()) {
